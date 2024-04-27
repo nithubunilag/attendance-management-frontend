@@ -1,7 +1,6 @@
 import { headerRoutes } from "@/app/utils/headerRoutes";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 type DrawerProps = {
   children: React.ReactNode;
