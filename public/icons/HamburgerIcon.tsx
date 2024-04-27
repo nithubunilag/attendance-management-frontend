@@ -12,14 +12,14 @@ function HamburgerIcon() {
       <path
         d="M11 16H35"
         stroke="#000000" // Change stroke color to black
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M11 28H35"
         stroke="#000000" // Change stroke color to black
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
