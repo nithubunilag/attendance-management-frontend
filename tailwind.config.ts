@@ -1,15 +1,28 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
+    screens: {
+      big_screen: { max: "2000px" },
+      desktop_xl: { max: "1920px" },
+      desktop: { max: "1280px" },
+      desktop_sm: { max: "1050px" },
+      tablet_max: { max: "1025px" },
+      tablet_md: { max: "1000px" },
+      tablet_min: { max: "768px" },
+      mobile_lg: { max: "650px" },
+      mobile_md: { max: "430px" },
+      mobile_sm: { max: "390px" },
+      mobile_xs: { max: "281px" },
+    },
     container: {
       center: true,
       padding: "2rem",
@@ -22,6 +35,9 @@ const config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        green: "#099137",
+        introBg: "#EFFFF4",
+        introText: "#099137",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -74,7 +90,10 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
+  daisyui: {
+    themes: [],
+  },
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
+} satisfies Config;
 
-export default config
+export default config;
