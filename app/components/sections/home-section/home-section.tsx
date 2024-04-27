@@ -15,7 +15,7 @@ function HomeSection() {
         <p className="pt-6 mx-auto max-w-2xl mobile_lg:text-sm mobile_sm:text-xs">
           Transform your environment into a hub of productivity and creativity,
           ensuring each task propels you towards unparalleled success. Embrace
-          the future of work today and elevate your team's performance to new
+          the future of work today and elevate your teams performance to new
           heights!
         </p>
       </div>
