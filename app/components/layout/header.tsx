@@ -21,11 +21,11 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <div className="block mobile_lg:hidden">
+        <Link href="/login" className="block mobile_lg:hidden">
           <Button size="lg" variant="nithub">
             Admin
           </Button>
-        </div>
+        </Link>
         <div className="hidden mobile_lg:block">
           <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
             <HamburgerIcon />
