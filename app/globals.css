@@ -74,3 +74,9 @@
       @apply bg-background text-foreground;
     }
   }
+
+input[type="checkbox"] {
+  accent-color: #099137;
+  width: 18px;
+  height: 18px;
+}
