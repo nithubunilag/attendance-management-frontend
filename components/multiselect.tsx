@@ -32,7 +32,7 @@ export function Multiselect() {
       <SelectContent>
         <SelectGroup>
           {countryList.map((list, index) => (
-            <SelectItem value={list.value}>
+            <SelectItem key={index} value={list.value}>
             <div className="flex items-center gap-2">
               <div>
               <div className="w-4 h-4">
