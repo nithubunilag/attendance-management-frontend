@@ -1,18 +1,18 @@
 export const headerRoutes = [
     {
-      name: "Home",
-      id: "hero",
+      name: "Client",
+      id: "#",
     },
     {
-      name: "Overview",
-      id: "overview",
+      name: "Students",
+      id: "#",
     },
     {
-      name: "Products",
-      id: "products",
+      name: "Visitors",
+      id: "#",
     },
     {
-      name: "Partnership",
-      id: "partnership",
+      name: "Intern",
+      id: "#",
     },
   ];

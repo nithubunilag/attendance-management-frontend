@@ -24,9 +24,11 @@ function Drawer({ children }: DrawerProps) {
             </li>
           ))}
           <li>
-            <Button size="lg" variant="nithub">
-              Admin
-            </Button>
+            <Link href="/login" className="block mobile_lg:hidden">
+              <Button size="lg" variant="nithub">
+                Admin
+              </Button>
+            </Link>
           </li>
         </ul>
       </div>
