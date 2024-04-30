@@ -47,7 +47,7 @@ export const useApi = <T, K>(apiFunc: (arg: K) => Promise<AxiosResponse>) => {
 
       // Display an error toast message
 
-      toast(error.message || "", {
+      toast(error?.message || "", {
         type: "error",
       });
 
