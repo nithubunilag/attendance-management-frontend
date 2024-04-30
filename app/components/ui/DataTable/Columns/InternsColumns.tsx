@@ -72,12 +72,12 @@ export const InternsColumns: ColumnDef<Data>[] = [
         cell: ({ row }) => {
             const info: info = row.getValue("name")
             return (
-                <div className="flex flex-row space-x-2">
-                    <div>
+                <div className="flex flex-row gap-4 item-start">
+                    <div className="h-[40px] w-[40px]">
                         {info.Image}
                     </div>
                     <div>
-                        <div className="text-black">{info.firstNname} {info.lastname}</div>
+                        <div style={{whiteSpace: "nowrap"}} className="text-black">{info.firstNname} {info.lastname}</div>
                         <div style={{ color: '#868686' }}>{info.contact}</div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@ export const InternsColumns: ColumnDef<Data>[] = [
             )
         },
         cell: ({ row }) => {
-            return <div className="rounded-2xl text-center" style={{ color: '#868686', backgroundColor: '#D9D9D9' }}>{row.getValue("stack")}</div>
+            return <div className="rounded-2xl text-center px-2 py-1" style={{ color: '#868686', backgroundColor: '#D9D9D9', whiteSpace: "nowrap" }}>{row.getValue("stack")}</div>
         },
     },
     {

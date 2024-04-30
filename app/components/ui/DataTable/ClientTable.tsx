@@ -108,14 +108,12 @@ async function getData(): Promise<Data[]> {
 export default async function ClientTable() {
     const data = await getData();
 
-    const totalData: number = data.length;
-
     return (
         <div className="container mx-auto py-10">
-            <div className="my-5  flex flex-row">
+            {/* <div className="my-5  flex flex-row">
                 <span className="mr-2  text-2xl font-bold">Clients</span>
                 <Badge variant="outline" className="bg-gray-100">{totalData}</Badge>
-            </div>
+            </div> */}
 
             <DataTable columns={ClientColumns} data={data} />
         </div>
