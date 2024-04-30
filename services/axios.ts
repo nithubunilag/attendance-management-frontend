@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_URL = "";
+export const API_URL = "https://nithubdev.unilag.edu.ng/nitmanager-api";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -18,6 +18,9 @@ axiosInstance.interceptors.response.use(
 
     if (error.response && error.response.status === 401) {
       retries -= 1;
+
+
+      console.log("retry")
 
       await fetch(`${API_URL}/auth/refresh-token`, {
         credentials: "include",
