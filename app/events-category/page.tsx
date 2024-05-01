@@ -4,6 +4,8 @@ import EventsCard from "../components/ui/events-card";
 
 function TabsInAGrid() {
   const [activeTab, setActiveTab] = useState("Upcoming");
+  const [pastEvents, setPastEvents] = useState([1, 2, 3, 5, 6])
+  const [upcomingEvents, setUpcomingEvents] = useState([1,2,3,])
 
   const openCity = (cityName: string) => {
     setActiveTab(cityName);
@@ -19,8 +21,8 @@ function TabsInAGrid() {
           onClick={() => openCity("Upcoming")}
         >
           Upcoming
-          <span className="bg-gray-300 text-gray-500 text-sm ml-1 p-1 rounded-lg">
-            23
+          <span className="bg-gray-300 text-gray-500 text-sm ml-1 py-1 px-2 rounded-lg">
+            {upcomingEvents.length}
           </span>
         </div>
         <div
@@ -30,8 +32,8 @@ function TabsInAGrid() {
           onClick={() => openCity("Past")}
         >
           Past
-          <span className="bg-gray-300 text-gray-500 text-sm ml-1 p-1 rounded-lg">
-            23
+          <span className="bg-gray-300 text-gray-500 text-sm ml-1 py-1 px-2 rounded-lg">
+            {pastEvents.length}
           </span>
         </div>
       </div>
@@ -41,8 +43,9 @@ function TabsInAGrid() {
         className="city-content"
         style={{ display: activeTab === "Upcoming" ? "block" : "none" }}
       >
-        <EventsCard />
-        <EventsCard />
+        {upcomingEvents.map((event, index) => (
+          <EventsCard key={index} tag="upcoming"/>
+        ))}
       </div>
 
       <div
@@ -50,8 +53,9 @@ function TabsInAGrid() {
         className="city-content"
         style={{ display: activeTab === "Past" ? "block" : "none" }}
       >
-        <EventsCard />
-        <EventsCard />
+        {pastEvents.map((event, index) => (
+          <EventsCard key={index} tag="past"/>
+        ))}
       </div>
     </div>
   );
