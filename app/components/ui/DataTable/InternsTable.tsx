@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Data, InternsColumns } from "./Columns/InternsColumns"
 import { DataTable } from "./DataTable"
-import Avatar from "@/public/Avatar";
+import Avatar from "@/public/images/Avatar";
 
 //Client
 async function getData(): Promise<Data[]> {
@@ -170,7 +170,7 @@ export default async function InternsTable() {
     const data = await getData();
 
     return (
-        <div className="container mx-auto py-4">
+        <div className="mx-auto">
 
             <DataTable columns={InternsColumns} data={data}/>
         </div>
