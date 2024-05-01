@@ -10,25 +10,28 @@ import StudentsTable from "@/app/components/ui/DataTable/StudentsTable";
 
 export default function StudentsData() {
     return (
-        <div>
-               <header className="">
-      <div className="py-4 mobile_lg:px-4 px-10 flex justify-between">
-        <Link href="/">
-          <Logo />
-        </Link>
-        
-        <div className="block">
-         <Multiselect/>
+      <div>
+      <header className="">
+        <div className="py-4 mobile_lg:px-4 px-10 flex justify-between">
+          <Link href="/">
+            <Logo />
+          </Link>
+
+          <div className="block">
+            <Multiselect />
+          </div>
         </div>
-      </div>
-    </header>
-            <main className="flex min-h-screen flex-col items-center px-28">
-      
-        {/* <Search /> */}
-        <SideBar />
-        <StudentsTable />
+      </header>
+      <main className="flex min-h-screen gap-4 px-10">
+        <div className="w-[10%]">
+          <SideBar />
+        </div>
+
+        <div className="w-[90%]">
+          {/* <Search /> */}
+          <StudentsTable />
+        </div>
       </main>
-        </div>
-      
+    </div>
     );
   }

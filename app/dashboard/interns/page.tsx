@@ -19,11 +19,15 @@ export default function InternsData() {
           </div>
         </div>
       </header>
-      <main className="flex min-h-screen flex-col items-center px-28">
-        {/* <Search /> */}
-        <SideBar />
-        <InternsTable />
-        
+      <main className="flex min-h-screen gap-4 px-10">
+        <div className="w-[10%]">
+          <SideBar />
+        </div>
+
+        <div className="w-[90%]">
+          {/* <Search /> */}
+          <InternsTable />
+        </div>
       </main>
     </div>
   );
