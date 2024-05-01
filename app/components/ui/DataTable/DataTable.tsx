@@ -83,7 +83,7 @@ export function DataTable<TData, TValue>({
             {/* <Search table={table}/> */}
 
             <div className="my-5  flex flex-row">
-                <span className="mr-2  text-2xl font-bold">{heading.charAt(0).toUpperCase() + heading.slice(1)}</span>
+                <span className="mr-2  text-2xl font-bold">{heading?.charAt(0).toUpperCase() + heading?.slice(1)}</span>
                 <Badge variant="outline" className="bg-gray-100">{totalData}</Badge>
             </div>
 
