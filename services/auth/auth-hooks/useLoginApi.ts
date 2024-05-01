@@ -15,6 +15,7 @@ export const useLoginApi: () => IApiHookBaseResponse<
 
   const handleLogin = async (loginDetails: ILoginRequest) => {
     loginRequest.reset();
+    console.log(loginDetails);
 
     return (await loginRequest.request(
       loginDetails

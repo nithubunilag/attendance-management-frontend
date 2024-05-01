@@ -42,7 +42,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      await handler(formData);
+      const response = await handler(formData);
+      console.log(response)
     } catch (err) {
       console.log(err);
     }
