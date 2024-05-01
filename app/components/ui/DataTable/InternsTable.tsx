@@ -169,16 +169,10 @@ async function getData(): Promise<Data[]> {
 export default async function InternsTable() {
     const data = await getData();
 
-    const totalData: number = data.length;
-
     return (
-        <div className="container mx-auto py-10">
-            <div className="my-5  flex flex-row">
-                <span className="mr-2  text-2xl font-bold">Interns</span>
-                <Badge variant="outline" className="bg-gray-100">{totalData}</Badge>
-            </div>
+        <div className="container mx-auto py-4">
 
-            <DataTable columns={InternsColumns} data={data} />
+            <DataTable columns={InternsColumns} data={data}/>
         </div>
     )
 }

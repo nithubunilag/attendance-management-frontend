@@ -3,8 +3,10 @@
 import * as React from "react";
 import {
     ColumnDef,
+    ColumnFiltersState,
     flexRender,
     getCoreRowModel,
+    getFilteredRowModel,
     getPaginationRowModel,
     SortingState,
     getSortedRowModel,
@@ -22,6 +24,11 @@ import {
 
 import { Button } from "@/components/ui/button";
 
+import Search from "@/app/components/ui/Search";
+import { Input } from "@/components/ui/input"
+import { SearchIcon } from "@/public/icons/SearchIcon";
+import { Badge } from "@/components/ui/badge"
+import { usePathname } from "next/navigation";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
@@ -33,6 +40,9 @@ export function DataTable<TData, TValue>({
     data,
 }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = React.useState<SortingState>([])
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+        []
+    )
     const [rowSelection, setRowSelection] = React.useState({})
 
     const table = useReactTable({
@@ -43,14 +53,40 @@ export function DataTable<TData, TValue>({
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
         onRowSelectionChange: setRowSelection,
+        onColumnFiltersChange: setColumnFilters,
+        getFilteredRowModel: getFilteredRowModel(),
         state: {
             sorting,
+            columnFilters,
             rowSelection,
         }
     });
 
+    const totalData: number = data.length;
+    const pathname = usePathname();
+    const heading = pathname.split("/")[2];
+
     return (
         <div>
+            <div className="flex items-center justify-center mx-auto my-2 max-w-sm bg-gray-100 rounded-2xl">
+                <span className="p-2"><SearchIcon /></span>
+                <Input
+                    placeholder="Filter emails..."
+                    value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+                    onChange={(event) =>
+                        table.getColumn("email")?.setFilterValue(event.target.value)
+                    }
+                    // className="flex-grow"
+                    className="outline-none border-none bg-gray-100 bg-transparent focus:bg-transparent focus-visible:outline-none focus-visible:border-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                />
+            </div>
+            {/* <Search table={table}/> */}
+
+            <div className="my-5  flex flex-row">
+                <span className="mr-2  text-2xl font-bold">{heading?.charAt(0).toUpperCase() + heading?.slice(1)}</span>
+                <Badge variant="outline" className="bg-gray-100">{totalData}</Badge>
+            </div>
+
             <div className="rounded-md border">
                 <Table>
                     <TableHeader style={{ backgroundColor: '#B5E3C4' }}>
