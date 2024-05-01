@@ -108,7 +108,7 @@ export default async function VisitorsTable() {
     const data = await getData();
 
     return (
-        <div className="container mx-auto py-10">
+        <div className="mx-auto">
             {/* <div className="my-5  flex flex-row">
                 <span className="mr-2  text-2xl font-bold">Visitors</span>
                 <Badge variant="outline" className="bg-gray-100">{totalData}</Badge>

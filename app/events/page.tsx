@@ -1,4 +1,5 @@
 "use client";
+
 import { Multiselect } from "@/components/multiselect";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,6 +29,7 @@ function Events() {
 
     try {
       await handler(formData);
+      // push('/dashboard/events');
     } catch (err) {
       console.log(err);
     }
@@ -50,17 +52,20 @@ function Events() {
           </div>
         </div>
       </header>
+
       <form
         onSubmit={handleEvent}
-        className="h-[calc(100vh-100px)] mobile_sm:px-4 w-full flex justify-center items-center"
+        className=" mobile_sm:px-4 w-full flex justify-center items-center"
+        id="addEvents"
       >
         {/* <GenericForm fields={fields}/> */}
-        <div className="mx-auto max-h-screen overflow-y-auto">
+        <div className="mx-auto max-h-screen">
           <div className="space-y-2 text-center">
-            <h1 className="text-3xl font-semi-bold text-[#101928]">Events</h1>
+            <h1 className="text-3xl font-semi-bold text-[#101928] py-4">Events</h1>
           </div>
+
           <div className="">
-            <div className="relative">
+            <div className="relative py-2">
               <Label htmlFor="name" className="text-[101928]">
                 Name
               </Label>
@@ -73,7 +78,8 @@ function Events() {
                 type="text"
               />
             </div>
-            <div className="relative ">
+
+            <div className="relative py-2">
               <Label htmlFor="description" className="text-[101928]">
                 Description
               </Label>
@@ -85,7 +91,8 @@ function Events() {
                 type={"text"}
               />
             </div>
-            <div className="relative ">
+
+            <div className="relative py-2">
               <Label htmlFor="limit" className="text-[101928]">
                 Limit
               </Label>
@@ -97,55 +104,79 @@ function Events() {
                 type={"text"}
               />
             </div>
-            <div className="relative">
-              <Label htmlFor="date" className="text-[101928]">
-                Date
-              </Label>
-              <Input
-                className="pr-10"
-                id="date"
-                onChange={handleChange}
-                required
-                type={"date"}
-              />
+
+            <div className="flex flex-row gap-3">
+              <div className="relative py-2 w-2/4">
+                <Label htmlFor="date" className="text-[101928]">
+                  Date
+                </Label>
+                <Input
+                  className="pr-10 text-center"
+                  id="date"
+                  onChange={handleChange}
+                  required
+                  type={"date"}
+                />
+              </div>
+
+              <div className="relative py-2 w-2/4">
+                <Label htmlFor="time" className="text-[101928]">
+                  Time
+                </Label>
+                <Input
+                  className="pr-10"
+                  id="time"
+                  onChange={handleChange}
+                  required
+                  type={"text"}
+                />
+              </div>
             </div>
-            <div className="relative ">
-              <Label htmlFor="time" className="text-[101928]">
-                Time
-              </Label>
-              <Input
-                className="pr-10"
-                id="time"
-                onChange={handleChange}
-                required
-                type={"text"}
-              />
-            </div>
-            <div className="relative">
-              <Label htmlFor="creatorId" className="text-[101928]">
-                Creator Id
-              </Label>
-              <Input
+
+            <div className="flex flex-row gap-3">
+              <div className="relative py-2 w-2/4">
+                <Label htmlFor="creatorId" className="text-[101928]">
+                  Creator Id
+                </Label>
+                {/* <Input
                 className="pr-10"
                 id="creatorId"
                 onChange={handleChange}
                 required
                 type={"text"}
-              />
+              /> */}
+                <select name="creatorId" id="creatorId" onChange={handleChange} form="addEvents" required className="block w-[100%] border rounded px-4 py-2 focus:outline-none focus:border-gray-100">
+                  <option value="">Select creator Id</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+
+              <div className="relative py-2 w-2/4">
+                <Label htmlFor="creatorType" className="text-[101928] ">
+                  Creator Type
+                </Label>
+                {/* <Input
+                  className="pr-10"
+                  id="creatorType"
+                  onChange={handleChange}
+                  required
+                  type={"text"} 
+                /> */}
+                <select name="creatorType"
+                  id="creatorType"
+                  onChange={handleChange}
+                  form="addEvents"
+                  className="block w-[100%] border rounded px-4 py-2 focus:outline-none focus:border-gray-100">
+                  {/* <option value="">Select creator Type</option> */}
+                  <option value="user" selected>user</option>
+                  <option value="organiztion">organization</option>
+                </select>
+              </div>
             </div>
-            <div className="relative">
-              <Label htmlFor="creatorType" className="text-[101928]">
-                Creator Type
-              </Label>
-              <Input
-                className="pr-10"
-                id="creatorType"
-                onChange={handleChange}
-                required
-                type={"text"}
-              />
-            </div>
-            <div className="relative ">
+
+            <div className="relative py-2">
               <Label htmlFor="coverPhoto" className="text-[101928]">
                 Creator Photo
               </Label>
@@ -161,7 +192,7 @@ function Events() {
             <Button
               size="lg"
               // onClick={handleButtonStuff}
-              className="w-full drop-shadow-xlselect bg-[#099137] py-4"
+              className="w-full drop-shadow-xlselect bg-[#099137] my-6"
               type="submit"
             >
               Create Event

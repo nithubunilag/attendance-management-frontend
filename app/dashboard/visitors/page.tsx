@@ -22,13 +22,16 @@ export default function VisitorsData() {
           </div>
         </div>
       </header>
-      <main className="flex min-h-screen flex-col items-center px-28">
+      <main className="flex min-h-screen gap-4 px-10">
+        <div className="w-[10%]">
+          <SideBar />
+        </div>
 
-        {/* <Search /> */}
-        <SideBar />
-        <VisitorsTable />
+        <div className="w-[90%]">
+          {/* <Search /> */}
+          <VisitorsTable />
+        </div>
       </main>
     </div>
-
   );
 }
