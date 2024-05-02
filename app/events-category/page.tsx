@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import EventsCard from "../components/ui/events-card";
 
-function TabsInAGrid() {
+function EventsCategory() {
   const [activeTab, setActiveTab] = useState("Upcoming");
-  const [pastEvents, setPastEvents] = useState([1, 2, 3, 5, 6])
-  const [upcomingEvents, setUpcomingEvents] = useState([1,2,3,])
+  const [pastEvents, setPastEvents] = useState([1, 2, 3, 5, 6]);
+  const [upcomingEvents, setUpcomingEvents] = useState([1, 2, 3]);
 
   const openCity = (cityName: string) => {
     setActiveTab(cityName);
@@ -44,7 +44,7 @@ function TabsInAGrid() {
         style={{ display: activeTab === "Upcoming" ? "block" : "none" }}
       >
         {upcomingEvents.map((event, index) => (
-          <EventsCard key={index} tag="upcoming"/>
+          <EventsCard key={index} tag="upcoming" />
         ))}
       </div>
 
@@ -54,11 +54,11 @@ function TabsInAGrid() {
         style={{ display: activeTab === "Past" ? "block" : "none" }}
       >
         {pastEvents.map((event, index) => (
-          <EventsCard key={index} tag="past"/>
+          <EventsCard key={index} tag="past" />
         ))}
       </div>
     </div>
   );
 }
 
-export default TabsInAGrid;
+export default EventsCategory;

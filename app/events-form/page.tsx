@@ -16,6 +16,8 @@ function Events() {
   const [formData, setFormData] = useState(new FormData());
   const { handler } = useEventApi();
 
+  console.log(formData.entries)
+
   const { push } = useRouter();
 
   const handleChange = (e: any) => {
@@ -28,8 +30,10 @@ function Events() {
     e.preventDefault();
 
     try {
-      await handler(formData);
-      // push('/dashboard/events');
+      const response = await handler(formData);
+      console.log(response)
+
+     
     } catch (err) {
       console.log(err);
     }

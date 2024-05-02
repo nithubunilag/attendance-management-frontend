@@ -36,7 +36,7 @@ class EventService {
    */
   public async createEvent(data: any) {
     return await axiosInstance.post<IBaseApiResponse<IEvent>>(
-      `${this.eventUrl}/events`,
+      `${this.eventUrl}events`,
       data,
       {
         headers: {

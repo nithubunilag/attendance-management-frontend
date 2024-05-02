@@ -43,12 +43,11 @@ const Login = () => {
 
     try {
       const response = await handler(formData);
-      console.log(response)
+      push("/dashboard/events");
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
-
-    push("/events");
   };
 
   const handleGoogleSignUp = () => {
